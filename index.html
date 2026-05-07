@@ -56,6 +56,13 @@
             50% { opacity: 1; }
         }
         
+        /* Centered Content Wrapper */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 6%;
+        }
+        
         /* Hero */
         header {
             min-height: 100vh;
@@ -95,8 +102,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 620px;
-            max-width: 85%;
+            width: 780px;
+            max-width: 92%;
             opacity: 0.18;
             filter: brightness(1.6) drop-shadow(0 0 80px var(--gold));
             z-index: 2;
@@ -159,8 +166,6 @@
             min-width: 300px;
             margin: 0 auto 2.8rem;
             display: block;
-            position: relative;
-            overflow: hidden;
         }
         
         .subscribe-btn::before {
@@ -205,7 +210,7 @@
         }
         
         section {
-            padding: 120px 6% 100px;
+            padding: 120px 0 100px;
             position: relative;
         }
         
@@ -230,21 +235,21 @@
             box-shadow: 0 0 20px var(--gold);
         }
         
-        #videos { 
-            background: var(--pure-black) !important; 
-        }
-        
-        .join-section {
+        #videos, .join-section {
             background: var(--pure-black) !important;
         }
         
+        /* Centered Video Grid */
         .videos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 42px;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 6%;
+            justify-content: center;
         }
         
-        /* Video cards untouched */
         .video-card {
             background: #0a0a0a;
             border-radius: 24px;
@@ -254,6 +259,9 @@
             cursor: pointer;
             position: relative;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
         }
         
         .video-card:hover {
@@ -262,6 +270,7 @@
             border-color: var(--gold);
         }
         
+        /* Rest of video card styles unchanged */
         .thumbnail-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -324,6 +333,7 @@
         .video-info {
             padding: 26px 24px;
             background: linear-gradient(to bottom, #0f0c0a, #0a0a0a);
+            text-align: center;
         }
         
         .video-title {
@@ -344,19 +354,24 @@
             background: transparent;
             color: var(--gold);
             border: 3px solid var(--gold);
-            padding: 18px 68px;
-            font-size: 1.2rem;
+            padding: 20px 78px;
+            font-size: 1.32rem;
             border-radius: 50px;
             cursor: pointer;
-            font-weight: 600;
-            letter-spacing: 2px;
+            font-weight: 700;
+            letter-spacing: 3px;
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
         
         #load-more:hover {
             background: var(--gold);
             color: var(--pure-black);
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.7);
+            transform: translateY(-4px);
+        }
+        
+        .join-section .container {
+            text-align: center;
         }
         
         .join-section p {
@@ -366,7 +381,7 @@
             line-height: 1.75;
         }
         
-        /* Footer - Large centered logo */
+        /* Footer */
         .footer {
             background: var(--pure-black);
             padding: 110px 6% 80px;
@@ -399,11 +414,18 @@
         }
         
         @media (max-width: 768px) {
+            .hero-bg-logo {
+                width: 520px;
+            }
             .footer-logo img {
                 height: 190px;
             }
             section {
-                padding: 90px 5% 80px;
+                padding: 90px 0 80px;
+            }
+            .videos-grid {
+                padding: 0 5%;
+                gap: 32px;
             }
         }
     </style>
@@ -426,18 +448,22 @@
     </header>
 
     <section id="videos">
-        <h2 class="section-title">Latest Releases</h2>
+        <div class="container">
+            <h2 class="section-title">Latest Releases</h2>
+        </div>
         <div id="videos-grid" class="videos-grid"></div>
         <button id="load-more" onclick="loadMoreVideos()">Show More Performances</button>
     </section>
 
     <section class="join-section">
-        <h2 class="section-title">Join the Sweethearts</h2>
-        <p>New romantic jazz playlists and 4K sessions every week.<br>Never miss a golden moment.</p>
-        <button onclick="window.open('https://www.youtube.com/@Sweetheart_Jazz_Club', '_blank')" 
-                style="background:#1a120f; color:var(--gold); padding:23px 78px; border:3px solid var(--gold); font-size:1.38rem; border-radius:60px; cursor:pointer; transition:all .5s cubic-bezier(0.23,1,0.32,1); font-weight:600;">
-            VISIT OFFICIAL CHANNEL
-        </button>
+        <div class="container">
+            <h2 class="section-title">Join the Sweethearts</h2>
+            <p>New romantic jazz playlists and 4K sessions every week.<br>Never miss a golden moment.</p>
+            <button onclick="window.open('https://www.youtube.com/@Sweetheart_Jazz_Club', '_blank')" 
+                    style="background:#1a120f; color:var(--gold); padding:23px 78px; border:3px solid var(--gold); font-size:1.38rem; border-radius:60px; cursor:pointer; transition:all .5s cubic-bezier(0.23,1,0.32,1); font-weight:600;">
+                VISIT OFFICIAL CHANNEL
+            </button>
+        </div>
     </section>
 
     <footer class="footer">
@@ -449,6 +475,7 @@
     </footer>
 
     <script>
+        // ... (script remains exactly the same)
         function createFloatingNotes() {
             const container = document.getElementById('music-notes');
             const notes = ['♫', '♪', '♬', '𝄞', '🎵'];
