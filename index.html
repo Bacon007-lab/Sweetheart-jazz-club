@@ -9,7 +9,7 @@
         :root {
             --gold: #d4af37;
             --gold-light: #e8c670;
-            --pure-black: #000000;          /* Pure AMOLED black */
+            --pure-black: #000000;
             --text: #e8d5b8;
         }
         
@@ -108,7 +108,7 @@
             transition: all 0.4s ease;
             width: auto;
             min-width: 280px;
-            margin: 0 auto;
+            margin: 0 auto 2.5rem;
             display: block;
         }
         
@@ -117,6 +117,28 @@
             color: #050505;
             transform: scale(1.05);
             box-shadow: 0 0 60px rgba(212, 175, 55, 0.8);
+        }
+        
+        /* Elegant Golden Scroll Arrow */
+        .scroll-arrow {
+            font-size: 2.8rem;
+            color: var(--gold);
+            cursor: pointer;
+            animation: pulse-down 2s infinite ease-in-out;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 0 auto;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
+        
+        .scroll-arrow:hover {
+            transform: scale(1.2);
+            color: var(--gold-light);
+        }
+        
+        @keyframes pulse-down {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(12px); }
         }
         
         /* Sections */
@@ -144,7 +166,7 @@
             transform: translateX(-50%);
         }
         
-        /* Video Grid - Pure AMOLED Black */
+        /* Video Grid */
         #videos {
             background: var(--pure-black) !important;
         }
@@ -170,7 +192,6 @@
             border-color: var(--gold);
         }
         
-        /* Selected State */
         .video-card.selected {
             border-color: var(--gold);
             box-shadow: 0 0 45px rgba(212, 175, 55, 0.6);
@@ -285,19 +306,12 @@
                 min-width: 260px;
             }
             
-            section {
-                padding: 80px 5% 70px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-bg-logo {
-                width: 360px;
+            .scroll-arrow {
+                font-size: 2.4rem;
             }
             
-            .subscribe-btn {
-                min-width: 240px;
-                padding: 15px 45px;
+            section {
+                padding: 80px 5% 70px;
             }
         }
     </style>
@@ -318,6 +332,11 @@
             </div>
             
             <button onclick="window.open('https://www.youtube.com/@Sweetheart_Jazz_Club?sub_confirmation=1', '_blank')" class="subscribe-btn">SUBSCRIBE ON YOUTUBE</button>
+            
+            <!-- Elegant Golden Scroll Arrow -->
+            <div class="scroll-arrow" onclick="document.getElementById('videos').scrollIntoView({ behavior: 'smooth' });" title="Scroll to Latest Releases">
+                ↓
+            </div>
         </div>
     </header>
 
