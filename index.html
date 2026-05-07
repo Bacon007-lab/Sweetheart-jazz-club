@@ -33,114 +33,106 @@
             z-index: -1;
         }
         
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            background: rgba(5, 5, 5, 0.97);
-            backdrop-filter: blur(16px);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        
-        .logo-img {
-            height: 58px;
-            filter: drop-shadow(0 0 15px var(--gold));
-        }
-        
-        .nav-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2.35rem;
-            color: var(--gold);
-            letter-spacing: 1.8px;
-            line-height: 1;
-            white-space: nowrap;
-        }
-        
-        nav a {
-            color: var(--text);
-            text-decoration: none;
-            margin-left: 2rem;
-            font-size: 1.05rem;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover { color: var(--gold); }
-        
         /* Hero */
         header {
             height: 100vh;
-            min-height: 650px;
-            background: linear-gradient(rgba(5,5,5,0.65), rgba(5,5,5,0.88)), 
+            min-height: 760px;
+            background: linear-gradient(rgba(5,5,5,0.72), rgba(5,5,5,0.92)), 
                         url('https://images.unsplash.com/photo-1516450360452-6a2c4a0d3b8f') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
+            overflow: hidden;
+        }
+        
+        /* Logo behind welcome section */
+        .hero-bg-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -48%);
+            width: 620px;
+            max-width: 88%;
+            opacity: 0.13;
+            filter: brightness(1.4) drop-shadow(0 0 60px var(--gold));
+            z-index: 1;
+            pointer-events: none;
         }
         
         .hero-content {
-            max-width: 920px;
+            max-width: 860px;
             padding: 0 20px;
             z-index: 2;
-        }
-        
-        .hero-logo {
-            max-width: 380px;
-            width: 90%;
-            margin: 0 auto 1.8rem;
-            filter: drop-shadow(0 0 45px rgba(212, 175, 55, 0.75));
+            position: relative;
         }
         
         .hero-content h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(3.2rem, 8vw, 5.8rem);
+            font-size: clamp(4.2rem, 10vw, 7.2rem);
             color: var(--gold);
-            margin-bottom: 0.6rem;
-            text-shadow: 0 0 60px rgba(212, 175, 55, 0.7);
-            line-height: 0.9;
+            margin-bottom: 1.4rem;
+            text-shadow: 0 0 80px rgba(212, 175, 55, 0.85);
+            line-height: 0.82;
+            letter-spacing: 2px;
         }
         
-        .hero-content p {
-            font-size: 1.4rem;
-            margin-bottom: 2.8rem;
-            opacity: 0.92;
+        .hero-content .tagline {
+            font-size: 1.45rem;
+            margin-bottom: 2.2rem;
+            opacity: 0.94;
+            max-width: 740px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .welcome-text {
+            max-width: 720px;
+            margin: 0 auto 2.8rem;
+            font-size: 1.22rem;
+            line-height: 1.75;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .welcome-text p {
+            margin-bottom: 1.4rem;
+        }
+        
+        .welcome-text p:last-child {
+            font-style: italic;
+            color: var(--gold-light);
+            font-size: 1.32rem;
+            margin-top: 1.8rem;
         }
         
         .subscribe-btn {
             background: transparent;
             color: var(--gold);
             border: 3px solid var(--gold);
-            padding: 18px 62px;
-            font-size: 1.35rem;
+            padding: 19px 72px;
+            font-size: 1.4rem;
             border-radius: 60px;
             cursor: pointer;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             transition: all 0.4s ease;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
         }
         
         .subscribe-btn:hover {
             background: var(--gold);
             color: #050505;
             transform: scale(1.08);
-            box-shadow: 0 0 50px rgba(212, 175, 55, 0.7);
+            box-shadow: 0 0 60px rgba(212, 175, 55, 0.8);
         }
         
         /* Sections */
         section {
-            padding: 120px 6% 100px;
+            padding: 110px 6% 90px;
         }
         
         .section-title {
@@ -161,17 +153,6 @@
             bottom: -22px;
             left: 50%;
             transform: translateX(-50%);
-        }
-        
-        .about {
-            background: var(--soft-black);
-            text-align: center;
-        }
-        
-        .about p {
-            max-width: 780px;
-            margin: 0 auto 2rem;
-            font-size: 1.3rem;
         }
         
         /* Video Grid */
@@ -278,52 +259,38 @@
         
         /* Mobile improvements */
         @media (max-width: 768px) {
-            .nav { 
-                padding: 1rem 4%; 
-                flex-wrap: wrap; 
-                gap: 12px; 
+            .hero-bg-logo {
+                width: 480px;
+                opacity: 0.09;
             }
-            .logo-container {
-                flex-basis: 100%;
-                justify-content: center;
+            .hero-content h1 {
+                font-size: clamp(3.6rem, 11vw, 6.5rem);
             }
-            nav a { margin: 8px 12px 8px 0; }
-            .nav-title { font-size: 2.1rem; }
-            .hero-logo { max-width: 320px; }
+            .welcome-text {
+                font-size: 1.15rem;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="logo-container">
-            <img src="1000048567.jpg" alt="Sweetheart Jazz Club" class="logo-img" onerror="this.style.display='none'">
-            <span class="nav-title">Sweetheart Jazz Club</span>
-        </div>
-        <div>
-            <a href="#about">The Club</a>
-            <a href="#videos">Performances</a>
-            <a href="https://www.youtube.com/@Sweetheart_Jazz_Club" target="_blank">YouTube</a>
-            <a href="https://www.youtube.com/@Sweetheart_Jazz_Club?sub_confirmation=1" target="_blank">Subscribe</a>
-        </div>
-    </nav>
-
     <header>
+        <!-- Background Logo -->
+        <img src="cutlogo.png" alt="" class="hero-bg-logo">
+        
         <div class="hero-content">
-            <img src="1000048567.jpg" alt="Sweetheart Jazz Club Logo" class="hero-logo">
-            <h1>Jazz Club</h1>
-            <p>1940s–1950s romantic jazz • Silky vocals • Golden-era swing in stunning 4K</p>
+            <h1>Sweetheart Jazz Club</h1>
+            <p class="tagline">1940s–1950s romantic jazz • Silky vocals • Golden-era swing in stunning 4K</p>
+            
+            <!-- Welcome section -->
+            <div class="welcome-text">
+                <p>Step into an intimate 1940s–1950s jazz sanctuary where every note feels like a whispered promise.</p>
+                <p>Curated slow piano & saxophone sessions, velvet vocals, and cozy rainy-night atmospheres. Perfect for date nights, deep focus, or drifting into the sweetest dreams.</p>
+                <p>"Where every note feels like a gentle kiss from the past..."</p>
+            </div>
+            
             <button onclick="window.open('https://www.youtube.com/@Sweetheart_Jazz_Club?sub_confirmation=1', '_blank')" class="subscribe-btn">SUBSCRIBE ON YOUTUBE</button>
         </div>
     </header>
-
-    <section id="about" class="about">
-        <h2 class="section-title">Welcome to the Club</h2>
-        <div style="max-width:780px; margin:0 auto;">
-            <p>Step into an intimate 1940s–1950s jazz sanctuary where every note feels like a whispered promise.</p>
-            <p>Curated slow piano & saxophone sessions, velvet vocals, and cozy rainy-night atmospheres. Perfect for date nights, deep focus, or drifting into the sweetest dreams.</p>
-            <p style="margin-top: 50px; font-style: italic; font-size: 1.55rem; color: var(--gold-light);">"Where every note feels like a gentle kiss from the past..."</p>
-        </div>
-    </section>
 
     <section id="videos" style="background: var(--soft-black);">
         <h2 class="section-title">Latest Releases</h2>
