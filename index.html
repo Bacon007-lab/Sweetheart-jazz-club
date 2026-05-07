@@ -149,7 +149,7 @@
             font-size: clamp(1.25rem, 4.2vw, 1.38rem);
         }
         
-        /* Elegant Button Style */
+        /* Elegant Button */
         .elegant-btn {
             background: transparent;
             color: var(--gold);
@@ -173,16 +173,17 @@
             transform: translateY(-4px);
         }
         
-        /* Scroll Arrow - More space on desktop */
+        /* Scroll Arrow */
         .scroll-arrow {
             font-size: 4.8rem;
             color: var(--gold);
             cursor: pointer;
             animation: pulse-down 2.8s infinite ease-in-out;
             display: block;
-            margin: 55px auto 0;   /* Increased spacing */
+            margin: 55px auto 0;
             text-shadow: 0 0 40px var(--gold);
             line-height: 1;
+            user-select: none;
         }
         
         @keyframes pulse-down {
@@ -190,7 +191,6 @@
             50% { transform: translateY(18px); }
         }
         
-        /* Mobile adjustments */
         @media (max-width: 768px) {
             .elegant-btn {
                 padding: 14px 48px;
@@ -198,7 +198,7 @@
                 letter-spacing: 2px;
             }
             .scroll-arrow {
-                margin: 35px auto 0;   /* Less spacing on mobile (you said it's good) */
+                margin: 35px auto 0;
                 font-size: 3.6rem;
             }
             .hero-bg-logo {
@@ -405,7 +405,7 @@
                 <p>"Where every note feels like a gentle kiss from the past..."</p>
             </div>
             <button onclick="window.open('https://www.youtube.com/@Sweetheart_Jazz_Club?sub_confirmation=1', '_blank')" class="elegant-btn">Subscribe on YouTube</button>
-            <div class="scroll-arrow" onclick="document.getElementById('videos').scrollIntoView({ behavior: 'smooth' });">↓</div>
+            <div class="scroll-arrow" onclick="smoothScrollToVideos();">↓</div>
         </div>
     </header>
 
@@ -452,6 +452,18 @@
                 note.style.opacity = 0.12 + Math.random() * 0.22;
                 container.appendChild(note);
             }
+        }
+        
+        // Improved smooth scroll function
+        function smoothScrollToVideos() {
+            const videosSection = document.getElementById('videos');
+            if (videosSection) {
+                videosSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+            return false; // Prevent any default behavior
         }
         
         const channelId = "UC6t3mXWxw2vqqkbmSAGxOQg";
