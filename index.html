@@ -35,8 +35,7 @@
         
         /* Hero */
         header {
-            height: 100vh;
-            min-height: 760px;
+            min-height: 100vh;
             background: linear-gradient(rgba(5,5,5,0.72), rgba(5,5,5,0.92)), 
                         url('https://images.unsplash.com/photo-1516450360452-6a2c4a0d3b8f') center/cover no-repeat;
             display: flex;
@@ -45,16 +44,17 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            padding: 80px 20px 60px;
         }
         
-        /* Logo behind welcome section */
+        /* Background Logo */
         .hero-bg-logo {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -48%);
+            transform: translate(-50%, -50%);
             width: 620px;
-            max-width: 88%;
+            max-width: 85%;
             opacity: 0.13;
             filter: brightness(1.4) drop-shadow(0 0 60px var(--gold));
             z-index: 1;
@@ -63,24 +63,24 @@
         
         .hero-content {
             max-width: 860px;
-            padding: 0 20px;
+            width: 100%;
             z-index: 2;
             position: relative;
         }
         
         .hero-content h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(4.2rem, 10vw, 7.2rem);
+            font-size: clamp(3.8rem, 9.5vw, 7.2rem);
             color: var(--gold);
-            margin-bottom: 1.4rem;
+            margin-bottom: 1.2rem;
             text-shadow: 0 0 80px rgba(212, 175, 55, 0.85);
-            line-height: 0.82;
-            letter-spacing: 2px;
+            line-height: 0.85;
+            letter-spacing: 1.5px;
         }
         
         .hero-content .tagline {
-            font-size: 1.45rem;
-            margin-bottom: 2.2rem;
+            font-size: clamp(1.25rem, 4vw, 1.45rem);
+            margin-bottom: 2rem;
             opacity: 0.94;
             max-width: 740px;
             margin-left: auto;
@@ -89,77 +89,81 @@
         
         .welcome-text {
             max-width: 720px;
-            margin: 0 auto 2.8rem;
-            font-size: 1.22rem;
-            line-height: 1.75;
-            position: relative;
-            z-index: 2;
+            margin: 0 auto 2.5rem;
+            font-size: clamp(1.1rem, 3.8vw, 1.22rem);
+            line-height: 1.78;
         }
         
         .welcome-text p {
-            margin-bottom: 1.4rem;
+            margin-bottom: 1.35rem;
         }
         
         .welcome-text p:last-child {
             font-style: italic;
             color: var(--gold-light);
-            font-size: 1.32rem;
-            margin-top: 1.8rem;
+            font-size: clamp(1.2rem, 4vw, 1.32rem);
+            margin-top: 1.6rem;
         }
         
         .subscribe-btn {
             background: transparent;
             color: var(--gold);
             border: 3px solid var(--gold);
-            padding: 19px 72px;
-            font-size: 1.4rem;
+            padding: 18px 60px;
+            font-size: clamp(1.25rem, 4vw, 1.4rem);
             border-radius: 60px;
             cursor: pointer;
             font-weight: 600;
             letter-spacing: 2.5px;
             transition: all 0.4s ease;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
+            width: auto;
+            min-width: 280px;
+            margin: 0 auto;
+            display: block;
         }
         
         .subscribe-btn:hover {
             background: var(--gold);
             color: #050505;
-            transform: scale(1.08);
+            transform: scale(1.05);
             box-shadow: 0 0 60px rgba(212, 175, 55, 0.8);
         }
         
         /* Sections */
         section {
-            padding: 110px 6% 90px;
+            padding: 100px 6% 80px;
         }
         
         .section-title {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(2.8rem, 6vw, 4.2rem);
+            font-size: clamp(2.6rem, 7vw, 4.2rem);
             color: var(--gold);
             text-align: center;
-            margin-bottom: 3.5rem;
+            margin-bottom: 3rem;
             position: relative;
         }
         
         .section-title::after {
             content: '';
-            width: 140px;
+            width: 120px;
             height: 2px;
             background: linear-gradient(to right, transparent, var(--gold), transparent);
             position: absolute;
-            bottom: -22px;
+            bottom: -18px;
             left: 50%;
             transform: translateX(-50%);
+        }
+        
+        /* Video Grid - Pure Deep Black Background */
+        #videos {
+            background: var(--deep-black) !important;
         }
         
         /* Video Grid */
         .videos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
         
         .video-card {
@@ -171,13 +175,13 @@
         }
         
         .video-card:hover {
-            transform: translateY(-20px);
-            box-shadow: 0 35px 70px rgba(212, 175, 55, 0.22);
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.22);
             border-color: var(--gold);
         }
         
         .thumbnail {
-            height: 240px;
+            height: 210px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -188,7 +192,7 @@
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 4.2rem;
+            font-size: 3.8rem;
             color: rgba(255,255,255,0.85);
             text-shadow: 0 0 30px #000;
             transition: all 0.3s ease;
@@ -196,45 +200,45 @@
         
         .video-card:hover .thumbnail::after {
             color: var(--gold);
-            transform: translate(-50%, -50%) scale(1.2);
+            transform: translate(-50%, -50%) scale(1.15);
         }
         
         .video-info {
-            padding: 26px;
+            padding: 22px;
         }
         
         .video-title {
-            font-size: 1.28rem;
-            line-height: 1.35;
-            margin-bottom: 14px;
+            font-size: 1.22rem;
+            line-height: 1.4;
+            margin-bottom: 12px;
         }
         
         .video-meta {
             color: #c9a37e;
-            font-size: 0.97rem;
+            font-size: 0.95rem;
         }
         
         .watch-btn {
-            margin-top: 20px;
+            margin-top: 18px;
             color: var(--gold);
             text-decoration: none;
             font-weight: 500;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             transition: gap 0.3s;
         }
         
-        .watch-btn:hover { gap: 16px; }
+        .watch-btn:hover { gap: 14px; }
         
         #load-more {
             display: block;
-            margin: 60px auto 30px;
+            margin: 50px auto 20px;
             background: transparent;
             color: var(--gold);
             border: 2.5px solid var(--gold);
-            padding: 17px 68px;
-            font-size: 1.2rem;
+            padding: 16px 60px;
+            font-size: 1.15rem;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.4s;
@@ -248,7 +252,7 @@
         /* Footer */
         .footer {
             background: #050505;
-            padding: 100px 6% 60px;
+            padding: 90px 6% 50px;
             text-align: center;
             border-top: 1px solid rgba(212, 175, 55, 0.3);
         }
@@ -257,17 +261,46 @@
             opacity: 0.8;
         }
         
-        /* Mobile improvements */
+        /* Improved Mobile Styles */
         @media (max-width: 768px) {
+            header {
+                padding-top: 90px;
+                padding-bottom: 70px;
+                min-height: auto;
+            }
+            
             .hero-bg-logo {
-                width: 480px;
-                opacity: 0.09;
+                width: 420px;
+                opacity: 0.11;
+                transform: translate(-50%, -52%);
             }
+            
             .hero-content h1 {
-                font-size: clamp(3.6rem, 11vw, 6.5rem);
+                margin-bottom: 1rem;
             }
+            
             .welcome-text {
-                font-size: 1.15rem;
+                margin-bottom: 2.2rem;
+            }
+            
+            .subscribe-btn {
+                padding: 16px 50px;
+                min-width: 260px;
+            }
+            
+            section {
+                padding: 80px 5% 70px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-bg-logo {
+                width: 360px;
+            }
+            
+            .subscribe-btn {
+                min-width: 240px;
+                padding: 15px 45px;
             }
         }
     </style>
@@ -292,7 +325,7 @@
         </div>
     </header>
 
-    <section id="videos" style="background: var(--soft-black);">
+    <section id="videos">
         <h2 class="section-title">Latest Releases</h2>
         <div id="videos-grid" class="videos-grid"></div>
         <button id="load-more" onclick="loadMoreVideos()">Show More Performances</button>
