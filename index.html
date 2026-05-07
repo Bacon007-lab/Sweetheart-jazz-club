@@ -149,7 +149,7 @@
             font-size: clamp(1.25rem, 4.2vw, 1.38rem);
         }
         
-        /* ELEGANT BUTTON STYLE */
+        /* Elegant Button Style */
         .elegant-btn {
             background: transparent;
             color: var(--gold);
@@ -176,8 +176,9 @@
         /* Mobile button adjustments */
         @media (max-width: 768px) {
             .elegant-btn {
-                padding: 16px 52px;
-                font-size: 1.18rem;
+                padding: 14px 48px;
+                font-size: 1.12rem;
+                letter-spacing: 2px;
             }
             .hero-bg-logo {
                 width: 520px;
@@ -340,6 +341,7 @@
             font-size: 0.94rem;
         }
         
+        /* Load More Button */
         #load-more {
             display: block;
             margin: 70px auto 40px;
@@ -411,7 +413,7 @@
             <h2 class="section-title">Latest Releases</h2>
         </div>
         <div id="videos-grid" class="videos-grid"></div>
-        <button id="load-more" onclick="loadMoreVideos()" class="elegant-btn">More Performances</button>
+        <button id="load-more" onclick="loadMoreVideos()" class="elegant-btn">Show More</button>
     </section>
 
     <section class="join-section">
