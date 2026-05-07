@@ -9,8 +9,7 @@
         :root {
             --gold: #d4af37;
             --gold-light: #e8c670;
-            --deep-black: #050505;
-            --soft-black: #0a0a0a;
+            --pure-black: #000000;          /* Pure AMOLED black */
             --text: #e8d5b8;
         }
         
@@ -18,7 +17,7 @@
         
         body {
             font-family: 'Playfair Display', serif;
-            background-color: var(--deep-black);
+            background-color: var(--pure-black);
             color: var(--text);
             line-height: 1.65;
             overflow-x: hidden;
@@ -36,7 +35,7 @@
         /* Hero */
         header {
             min-height: 100vh;
-            background: linear-gradient(rgba(5,5,5,0.72), rgba(5,5,5,0.92)), 
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.94)), 
                         url('https://images.unsplash.com/photo-1516450360452-6a2c4a0d3b8f') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -145,9 +144,9 @@
             transform: translateX(-50%);
         }
         
-        /* Video Grid */
+        /* Video Grid - Pure AMOLED Black */
         #videos {
-            background: var(--deep-black) !important;
+            background: var(--pure-black) !important;
         }
         
         .videos-grid {
@@ -157,7 +156,7 @@
         }
         
         .video-card {
-            background: #111;
+            background: #0a0a0a;
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -167,14 +166,14 @@
         
         .video-card:hover {
             transform: translateY(-15px);
-            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.22);
+            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.25);
             border-color: var(--gold);
         }
         
         /* Selected State */
         .video-card.selected {
             border-color: var(--gold);
-            box-shadow: 0 0 45px rgba(212, 175, 55, 0.55);
+            box-shadow: 0 0 45px rgba(212, 175, 55, 0.6);
             transform: scale(1.03);
         }
         
@@ -249,7 +248,7 @@
         
         /* Footer */
         .footer {
-            background: #050505;
+            background: var(--pure-black);
             padding: 90px 6% 50px;
             text-align: center;
             border-top: 1px solid rgba(212, 175, 55, 0.3);
@@ -328,7 +327,7 @@
         <button id="load-more" onclick="loadMoreVideos()">Show More Performances</button>
     </section>
 
-    <section style="background: #050505; text-align:center;">
+    <section style="background: var(--pure-black); text-align:center;">
         <h2 class="section-title">Join the Sweethearts</h2>
         <p style="max-width:680px; margin:0 auto 45px; font-size:1.42rem;">
             New romantic jazz playlists and 4K sessions every week.<br>Never miss a golden moment.
@@ -394,23 +393,16 @@
                     </div>
                 `;
                 
-                // New click behavior
                 card.addEventListener('click', function(e) {
-                    // Ignore clicks on the YouTube link
                     if (e.target.closest('a')) return;
                     
                     const wasSelected = this.classList.contains('selected');
                     
-                    // Deselect all cards first
-                    document.querySelectorAll('.video-card').forEach(c => {
-                        c.classList.remove('selected');
-                    });
+                    document.querySelectorAll('.video-card').forEach(c => c.classList.remove('selected'));
                     
                     if (!wasSelected) {
-                        // First click → select
                         this.classList.add('selected');
                     } else {
-                        // Second click → open video
                         const link = this.querySelector('a');
                         if (link) window.open(link.href, '_blank');
                     }
