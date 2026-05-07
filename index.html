@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sweetheart Jazz Club ✨</title>
     
-    <!-- Open Graph / Social Sharing Meta Tags -->
+    <!-- Open Graph / Social Sharing -->
     <meta property="og:title" content="Sweetheart Jazz Club ✨">
     <meta property="og:description" content="1940s–1950s romantic jazz • Silky vocals • Golden-era swing in stunning 4K">
     <meta property="og:image" content="https://sweetheartjazz.club/banner.png">
@@ -13,7 +13,6 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sweetheart Jazz Club">
     
-    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sweetheart Jazz Club ✨">
     <meta name="twitter:description" content="1940s–1950s romantic jazz sanctuary">
@@ -133,7 +132,6 @@
             box-shadow: 0 0 60px rgba(212, 175, 55, 0.8);
         }
         
-        /* Elegant Golden Scroll Arrow */
         .scroll-arrow {
             font-size: 2.8rem;
             color: var(--gold);
@@ -156,9 +154,7 @@
         }
         
         /* Sections */
-        section {
-            padding: 100px 6% 80px;
-        }
+        section { padding: 100px 6% 80px; }
         
         .section-title {
             font-family: 'Great Vibes', cursive;
@@ -180,10 +176,7 @@
             transform: translateX(-50%);
         }
         
-        /* Video Grid - Pure Black */
-        #videos {
-            background: var(--pure-black) !important;
-        }
+        #videos { background: var(--pure-black) !important; }
         
         .videos-grid {
             display: grid;
@@ -197,29 +190,69 @@
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.12);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
         }
         
         .video-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.25);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.3);
             border-color: var(--gold);
         }
         
-        /* Responsive YouTube Embed */
-        .embed-container {
+        /* Thumbnail with Play Button */
+        .thumbnail-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             background: #000;
         }
         
-        .embed-container iframe {
+        .thumbnail-container img {
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             width: 100%;
             height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 175, 55, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: #000;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        
+        .video-card:hover .play-overlay {
+            transform: translate(-50%, -50%) scale(1.15);
+            background: var(--gold);
+        }
+        
+        /* Embedded Player (shown after click) */
+        .embed-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .embed-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             border: none;
         }
         
@@ -264,79 +297,33 @@
             border-top: 1px solid rgba(212, 175, 55, 0.3);
         }
         
-        .footer p {
-            opacity: 0.8;
-        }
+        .footer p { opacity: 0.8; }
         
-        /* Mobile */
         @media (max-width: 768px) {
-            header {
-                padding-top: 90px;
-                padding-bottom: 70px;
-                min-height: auto;
-            }
-            
-            .hero-bg-logo {
-                width: 420px;
-                opacity: 0.11;
-                transform: translate(-50%, -52%);
-            }
-            
-            .hero-content h1 {
-                margin-bottom: 1.2rem;
-            }
-            
-            .welcome-text {
-                margin-bottom: 2.4rem;
-            }
-            
-            .subscribe-btn {
-                padding: 16px 50px;
-                min-width: 260px;
-            }
-            
-            .scroll-arrow {
-                font-size: 2.4rem;
-            }
-            
-            section {
-                padding: 80px 5% 70px;
-            }
-            
-            .videos-grid {
-                gap: 30px;
-            }
+            .play-overlay { width: 70px; height: 70px; font-size: 1.9rem; }
+            section { padding: 80px 5% 70px; }
         }
     </style>
 </head>
 <body>
     <header>
-        <!-- Background Logo -->
         <img src="cutlogo.png" alt="" class="hero-bg-logo">
-        
         <div class="hero-content">
             <h1>Sweetheart Jazz Club</h1>
-            
-            <!-- Welcome section -->
             <div class="welcome-text">
                 <p>Step into an intimate 1940s–1950s jazz sanctuary where every note feels like a whispered promise.</p>
                 <p>Curated slow piano & saxophone sessions, velvet vocals, and cozy rainy-night atmospheres. Perfect for date nights, deep focus, or drifting into the sweetest dreams.</p>
                 <p>"Where every note feels like a gentle kiss from the past..."</p>
             </div>
-            
             <button onclick="window.open('https://www.youtube.com/@Sweetheart_Jazz_Club?sub_confirmation=1', '_blank')" class="subscribe-btn">SUBSCRIBE ON YOUTUBE</button>
-            
-            <!-- Elegant Golden Scroll Arrow -->
-            <div class="scroll-arrow" onclick="document.getElementById('videos').scrollIntoView({ behavior: 'smooth' });" title="Scroll to Latest Releases">
-                ↓
-            </div>
+            <div class="scroll-arrow" onclick="document.getElementById('videos').scrollIntoView({ behavior: 'smooth' });">↓</div>
         </div>
     </header>
 
     <section id="videos">
         <h2 class="section-title">Latest Releases</h2>
         <div id="videos-grid" class="videos-grid"></div>
-        <button id="load-more" onclick="loadMoreVideos()">Show More</button>
+        <button id="load-more" onclick="loadMoreVideos()">Show More Performances</button>
     </section>
 
     <section style="background: var(--pure-black); text-align:center;">
@@ -370,14 +357,11 @@
                 const data = await response.json();
                 
                 allVideos = data.items.map(item => {
-                    // Extract video ID from YouTube link
                     const url = new URL(item.link);
                     const videoId = url.searchParams.get('v') || item.guid.split('/').pop();
-                    
                     return {
                         title: item.title,
                         videoId: videoId,
-                        link: item.link,
                         pubDate: new Date(item.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
                     };
                 });
@@ -387,11 +371,6 @@
                 loadMoreVideos();
             } catch (error) {
                 console.error("Failed to load videos:", error);
-                document.getElementById('videos-grid').innerHTML = `
-                    <p style="grid-column:1/-1; text-align:center; color:#c9a37e; font-size:1.25rem; padding:40px 20px;">
-                        Unable to load latest videos automatically.<br>
-                        Please visit the <a href="https://www.youtube.com/@Sweetheart_Jazz_Club/videos" target="_blank" style="color:var(--gold);">YouTube Channel</a> directly.
-                    </p>`;
             }
         }
 
@@ -403,21 +382,29 @@
                 const card = document.createElement('div');
                 card.className = 'video-card';
                 card.innerHTML = `
-                    <div class="embed-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/${video.videoId}" 
-                            title="${video.title}" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin" 
-                            allowfullscreen>
-                        </iframe>
+                    <div class="thumbnail-container">
+                        <img src="https://img.youtube.com/vi/\( {video.videoId}/maxresdefault.jpg" alt=" \){video.title}">
+                        <div class="play-overlay">▶</div>
                     </div>
                     <div class="video-info">
                         <div class="video-title">${video.title}</div>
                         <div class="video-meta">${video.pubDate}</div>
                     </div>
                 `;
+                
+                // Click to play
+                card.addEventListener('click', function() {
+                    const thumbContainer = this.querySelector('.thumbnail-container');
+                    const embedHTML = `
+                        <div class="embed-container">
+                            <iframe src="https://www.youtube.com/embed/${video.videoId}?autoplay=1" 
+                                    title="${video.title}" frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>`;
+                    thumbContainer.outerHTML = embedHTML;
+                });
+                
                 grid.appendChild(card);
             });
             
