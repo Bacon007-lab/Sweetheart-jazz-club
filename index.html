@@ -173,28 +173,14 @@
             transform: translateY(-4px);
         }
         
-        /* Mobile button adjustments */
-        @media (max-width: 768px) {
-            .elegant-btn {
-                padding: 14px 48px;
-                font-size: 1.12rem;
-                letter-spacing: 2px;
-            }
-            .hero-bg-logo {
-                width: 520px;
-            }
-            .scroll-arrow {
-                font-size: 3.6rem;
-            }
-        }
-        
+        /* Scroll Arrow - More space on desktop */
         .scroll-arrow {
             font-size: 4.8rem;
             color: var(--gold);
             cursor: pointer;
             animation: pulse-down 2.8s infinite ease-in-out;
             display: block;
-            margin: 0 auto;
+            margin: 55px auto 0;   /* Increased spacing */
             text-shadow: 0 0 40px var(--gold);
             line-height: 1;
         }
@@ -202,6 +188,22 @@
         @keyframes pulse-down {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(18px); }
+        }
+        
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .elegant-btn {
+                padding: 14px 48px;
+                font-size: 1.12rem;
+                letter-spacing: 2px;
+            }
+            .scroll-arrow {
+                margin: 35px auto 0;   /* Less spacing on mobile (you said it's good) */
+                font-size: 3.6rem;
+            }
+            .hero-bg-logo {
+                width: 520px;
+            }
         }
         
         section {
@@ -341,7 +343,6 @@
             font-size: 0.94rem;
         }
         
-        /* Load More Button */
         #load-more {
             display: block;
             margin: 70px auto 40px;
