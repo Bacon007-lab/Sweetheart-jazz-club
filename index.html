@@ -55,7 +55,7 @@
             transform: translate(-50%, -50%);
             width: 620px;
             max-width: 85%;
-            opacity: 0.25;
+            opacity: 0.13;
             filter: brightness(1.4) drop-shadow(0 0 60px var(--gold));
             z-index: 1;
             pointer-events: none;
@@ -145,12 +145,11 @@
             transform: translateX(-50%);
         }
         
-        /* Video Grid - Pure Deep Black Background */
+        /* Video Grid */
         #videos {
             background: var(--deep-black) !important;
         }
         
-        /* Video Grid */
         .videos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -161,14 +160,22 @@
             background: #111;
             border-radius: 20px;
             overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid rgba(212, 175, 55, 0.12);
+            cursor: pointer;
         }
         
         .video-card:hover {
             transform: translateY(-15px);
             box-shadow: 0 30px 60px rgba(212, 175, 55, 0.22);
             border-color: var(--gold);
+        }
+        
+        /* Selected State */
+        .video-card.selected {
+            border-color: var(--gold);
+            box-shadow: 0 0 45px rgba(212, 175, 55, 0.55);
+            transform: scale(1.03);
         }
         
         .thumbnail {
@@ -252,7 +259,7 @@
             opacity: 0.8;
         }
         
-        /* Improved Mobile Styles */
+        /* Mobile */
         @media (max-width: 768px) {
             header {
                 padding-top: 90px;
@@ -386,6 +393,29 @@
                         <a href="${video.link}" target="_blank" class="watch-btn">▶ Watch on YouTube</a>
                     </div>
                 `;
+                
+                // New click behavior
+                card.addEventListener('click', function(e) {
+                    // Ignore clicks on the YouTube link
+                    if (e.target.closest('a')) return;
+                    
+                    const wasSelected = this.classList.contains('selected');
+                    
+                    // Deselect all cards first
+                    document.querySelectorAll('.video-card').forEach(c => {
+                        c.classList.remove('selected');
+                    });
+                    
+                    if (!wasSelected) {
+                        // First click → select
+                        this.classList.add('selected');
+                    } else {
+                        // Second click → open video
+                        const link = this.querySelector('a');
+                        if (link) window.open(link.href, '_blank');
+                    }
+                });
+                
                 grid.appendChild(card);
             });
             
