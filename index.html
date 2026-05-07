@@ -8,16 +8,16 @@
     <!-- Open Graph / Social Sharing Meta Tags -->
     <meta property="og:title" content="Sweetheart Jazz Club ✨">
     <meta property="og:description" content="1940s–1950s romantic jazz • Silky vocals • Golden-era swing in stunning 4K">
-    <meta property="og:image" content="banner.png">  <!-- Your banner image -->
-    <meta property="og:url" content="https://sweetheartjazz.club/"> <!-- Change to your actual URL when hosted -->
+    <meta property="og:image" content="https://sweetheartjazz.club/banner.png">  <!-- ← Full URL -->
+    <meta property="og:url" content="https://sweetheartjazz.club/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sweetheart Jazz Club">
     
-    <!-- Optional: Better preview on Twitter / X -->
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sweetheart Jazz Club ✨">
-    <meta name="twitter:description" content="Step into a 1940s-1950s romantic jazz sanctuary">
-    <meta name="twitter:image" content="banner.png">
+    <meta name="twitter:description" content="1940s–1950s romantic jazz sanctuary">
+    <meta name="twitter:image" content="https://sweetheartjazz.club/banner.png">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Great+Vibes&amp;display=swap">
     <style>
@@ -46,7 +46,7 @@
             pointer-events: none;
             z-index: -1;
         }
-        
+
         /* Hero */
         header {
             min-height: 100vh;
@@ -60,8 +60,7 @@
             overflow: hidden;
             padding: 80px 20px 60px;
         }
-        
-        /* Background Logo */
+
         .hero-bg-logo {
             position: absolute;
             top: 50%;
@@ -74,14 +73,14 @@
             z-index: 1;
             pointer-events: none;
         }
-        
+
         .hero-content {
             max-width: 860px;
             width: 100%;
             z-index: 2;
             position: relative;
         }
-        
+
         .hero-content h1 {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3.8rem, 9.5vw, 7.2rem);
@@ -91,25 +90,25 @@
             line-height: 0.85;
             letter-spacing: 1.5px;
         }
-        
+
         .welcome-text {
             max-width: 720px;
             margin: 0 auto 2.8rem;
             font-size: clamp(1.1rem, 3.8vw, 1.22rem);
             line-height: 1.78;
         }
-        
+
         .welcome-text p {
             margin-bottom: 1.35rem;
         }
-        
+
         .welcome-text p:last-child {
             font-style: italic;
             color: var(--gold-light);
             font-size: clamp(1.2rem, 4vw, 1.32rem);
             margin-top: 1.6rem;
         }
-        
+
         .subscribe-btn {
             background: transparent;
             color: var(--gold);
@@ -126,15 +125,14 @@
             margin: 0 auto 2.5rem;
             display: block;
         }
-        
+
         .subscribe-btn:hover {
             background: var(--gold);
             color: #050505;
             transform: scale(1.05);
             box-shadow: 0 0 60px rgba(212, 175, 55, 0.8);
         }
-        
-        /* Elegant Golden Scroll Arrow */
+
         .scroll-arrow {
             font-size: 2.8rem;
             color: var(--gold);
@@ -145,19 +143,19 @@
             margin: 0 auto;
             text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
         }
-        
+
         .scroll-arrow:hover {
             transform: scale(1.2);
             color: var(--gold-light);
         }
-        
+
         @keyframes pulse-down {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(12px); }
         }
-        
-        /* Rest of your styles remain the same */
+
         section { padding: 100px 6% 80px; }
+        
         .section-title {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(2.6rem, 7vw, 4.2rem);
@@ -166,6 +164,7 @@
             margin-bottom: 3rem;
             position: relative;
         }
+        
         .section-title::after {
             content: '';
             width: 120px;
@@ -176,14 +175,38 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        
+
         #videos { background: var(--pure-black) !important; }
+
+        /* Video cards, footer, etc. - keeping your previous styles */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
         
-        /* ... (your existing video card, footer, etc. styles) ... */
+        .video-card {
+            background: #0a0a0a;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(212, 175, 55, 0.12);
+            cursor: pointer;
+        }
+        
+        .video-card:hover, .video-card.selected {
+            border-color: var(--gold);
+            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.25);
+        }
+        
+        .video-card.selected {
+            transform: scale(1.03);
+        }
+        
+        /* Add the rest of your styles (thumbnail, footer, mobile, etc.) here if missing */
     </style>
 </head>
 <body>
-    <!-- Your existing body content -->
     <header>
         <img src="cutlogo.png" alt="" class="hero-bg-logo">
         <div class="hero-content">
@@ -194,12 +217,99 @@
                 <p>"Where every note feels like a gentle kiss from the past..."</p>
             </div>
             <button onclick="window.open('https://www.youtube.com/@Sweetheart_Jazz_Club?sub_confirmation=1', '_blank')" class="subscribe-btn">SUBSCRIBE ON YOUTUBE</button>
-            <div class="scroll-arrow" onclick="document.getElementById('videos').scrollIntoView({ behavior: 'smooth' });" title="Scroll to Latest Releases">↓</div>
+            <div class="scroll-arrow" onclick="document.getElementById('videos').scrollIntoView({ behavior: 'smooth' });">↓</div>
         </div>
     </header>
 
-    <!-- Rest of your page (videos, join section, footer) remains unchanged -->
-    <!-- ... -->
+    <section id="videos">
+        <h2 class="section-title">Latest Releases</h2>
+        <div id="videos-grid" class="videos-grid"></div>
+        <button id="load-more" onclick="loadMoreVideos()">Show More Performances</button>
+    </section>
 
+    <section style="background: var(--pure-black); text-align:center;">
+        <h2 class="section-title">Join the Sweethearts</h2>
+        <p style="max-width:680px; margin:0 auto 45px; font-size:1.42rem;">
+            New romantic jazz playlists and 4K sessions every week.<br>Never miss a golden moment.
+        </p>
+        <button onclick="window.open('https://www.youtube.com/@Sweetheart_Jazz_Club', '_blank')" 
+                style="background:#1a120f; color:var(--gold); padding:22px 70px; border:3px solid var(--gold); font-size:1.35rem; border-radius:60px; cursor:pointer; transition:all .4s;">
+            VISIT OFFICIAL CHANNEL
+        </button>
+    </section>
+
+    <footer class="footer" style="background: var(--pure-black); padding: 90px 6% 50px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.3);">
+        <p style="font-size:2.8rem; margin-bottom:20px; font-family:'Great Vibes', cursive; color:var(--gold);">Sweetheart Jazz Club ✨</p>
+        <p>Official website • All content from <a href="https://www.youtube.com/@Sweetheart_Jazz_Club" target="_blank" style="color:var(--gold);">Sweetheart Jazz Club</a> on YouTube</p>
+        <p style="margin-top:35px; opacity:0.65; font-size:0.95rem;">Made with ❤️ for lovers of timeless vintage jazz</p>
+    </footer>
+
+    <script>
+        // Your existing video script here (unchanged)
+        const channelId = "UC6t3mXWxw2vqqkbmSAGxOQg";
+        const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+        
+        let allVideos = [];
+        let displayedCount = 0;
+        const videosPerPage = 6;
+
+        async function fetchVideos() {
+            try {
+                const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`);
+                const data = await response.json();
+                
+                allVideos = data.items.map(item => ({
+                    title: item.title,
+                    thumbnail: item.thumbnail || `https://img.youtube.com/vi/${item.guid.split('/').pop()}/maxresdefault.jpg`,
+                    link: item.link,
+                    pubDate: new Date(item.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+                }));
+                
+                displayedCount = 0;
+                document.getElementById('videos-grid').innerHTML = '';
+                loadMoreVideos();
+            } catch (error) {
+                console.error("Failed to load videos:", error);
+            }
+        }
+
+        function loadMoreVideos() {
+            const grid = document.getElementById('videos-grid');
+            const nextBatch = allVideos.slice(displayedCount, displayedCount + videosPerPage);
+            
+            nextBatch.forEach(video => {
+                const card = document.createElement('div');
+                card.className = 'video-card';
+                card.innerHTML = `
+                    <div class="thumbnail" style="background-image: url('${video.thumbnail}');"></div>
+                    <div class="video-info">
+                        <div class="video-title">${video.title}</div>
+                        <div class="video-meta">${video.pubDate}</div>
+                        <a href="${video.link}" target="_blank" class="watch-btn">▶ Watch on YouTube</a>
+                    </div>
+                `;
+                
+                card.addEventListener('click', function(e) {
+                    if (e.target.closest('a')) return;
+                    const wasSelected = this.classList.contains('selected');
+                    document.querySelectorAll('.video-card').forEach(c => c.classList.remove('selected'));
+                    if (!wasSelected) {
+                        this.classList.add('selected');
+                    } else if (this.querySelector('a')) {
+                        window.open(this.querySelector('a').href, '_blank');
+                    }
+                });
+                
+                grid.appendChild(card);
+            });
+            
+            displayedCount += nextBatch.length;
+            if (displayedCount >= allVideos.length) {
+                document.getElementById('load-more').style.display = 'none';
+            }
+        }
+
+        window.onload = fetchVideos;
+    </script>
 </body>
 </html>
