@@ -193,19 +193,30 @@
             transform: translateY(-3px);
         }
         
+        /* SCROLL ARROW - Much larger on desktop, slightly bigger on mobile */
         .scroll-arrow {
-            font-size: 3rem;
+            font-size: 4.8rem;           /* Large on desktop */
             color: var(--gold);
             cursor: pointer;
             animation: pulse-down 2.8s infinite ease-in-out;
             display: block;
             margin: 0 auto;
-            text-shadow: 0 0 30px var(--gold);
+            text-shadow: 0 0 40px var(--gold);
+            line-height: 1;
         }
         
         @keyframes pulse-down {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(18px); }
+        }
+        
+        @media (max-width: 768px) {
+            .scroll-arrow {
+                font-size: 3.6rem;       /* Nicely bigger on mobile */
+            }
+            .hero-bg-logo {
+                width: 520px;
+            }
         }
         
         section {
@@ -327,9 +338,8 @@
             width: 100%; height: 100%;
         }
         
-        /* SLIMMER BOTTOM SECTION */
         .video-info {
-            padding: 18px 24px;           /* Reduced from 26px */
+            padding: 18px 24px;
             background: linear-gradient(to bottom, #0f0c0a, #0a0a0a);
             text-align: center;
         }
@@ -409,22 +419,6 @@
         .footer a {
             color: var(--gold);
             text-decoration: underline rgba(212,175,55,0.4);
-        }
-        
-        @media (max-width: 768px) {
-            .hero-bg-logo {
-                width: 520px;
-            }
-            .footer-logo img {
-                height: 190px;
-            }
-            section {
-                padding: 90px 0 80px;
-            }
-            .videos-grid {
-                padding: 0 5%;
-                gap: 32px;
-            }
         }
     </style>
 </head>
