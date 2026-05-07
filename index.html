@@ -19,7 +19,6 @@
             --gold-light: #e8c670;
             --gold-dark: #b38b2e;
             --pure-black: #000000;
-            --deep-bg: #0a0503;
             --text: #e8d5b8;
             --text-muted: #c9a37e;
         }
@@ -150,52 +149,46 @@
             font-size: clamp(1.25rem, 4.2vw, 1.38rem);
         }
         
-        .subscribe-btn {
+        /* ELEGANT BUTTON STYLE */
+        .elegant-btn {
             background: transparent;
             color: var(--gold);
             border: 3px solid var(--gold);
-            padding: 19px 68px;
-            font-size: clamp(1.28rem, 4.2vw, 1.45rem);
+            padding: 18px 72px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
             border-radius: 60px;
             cursor: pointer;
-            font-weight: 700;
-            letter-spacing: 3px;
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            width: auto;
-            min-width: 300px;
-            margin: 0 auto 2.8rem;
-            display: block;
+            display: inline-block;
+            text-transform: uppercase;
         }
         
-        .subscribe-btn::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -100%;
-            width: 50%;
-            height: 200%;
-            background: linear-gradient(
-                120deg,
-                transparent,
-                rgba(255,255,255,0.4),
-                transparent
-            );
-            transition: 0.7s;
+        .elegant-btn:hover {
+            background: var(--gold);
+            color: var(--pure-black);
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.7);
+            transform: translateY(-4px);
         }
         
-        .subscribe-btn:hover::before {
-            left: 200%;
+        /* Mobile button adjustments */
+        @media (max-width: 768px) {
+            .elegant-btn {
+                padding: 16px 52px;
+                font-size: 1.18rem;
+            }
+            .hero-bg-logo {
+                width: 520px;
+            }
+            .scroll-arrow {
+                font-size: 3.6rem;
+            }
         }
         
-        .subscribe-btn:hover {
-            background: rgba(212, 175, 55, 0.1);
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
-            transform: translateY(-3px);
-        }
-        
-        /* SCROLL ARROW - Much larger on desktop, slightly bigger on mobile */
         .scroll-arrow {
-            font-size: 4.8rem;           /* Large on desktop */
+            font-size: 4.8rem;
             color: var(--gold);
             cursor: pointer;
             animation: pulse-down 2.8s infinite ease-in-out;
@@ -208,15 +201,6 @@
         @keyframes pulse-down {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(18px); }
-        }
-        
-        @media (max-width: 768px) {
-            .scroll-arrow {
-                font-size: 3.6rem;       /* Nicely bigger on mobile */
-            }
-            .hero-bg-logo {
-                width: 520px;
-            }
         }
         
         section {
@@ -359,23 +343,6 @@
         #load-more {
             display: block;
             margin: 70px auto 40px;
-            background: transparent;
-            color: var(--gold);
-            border: 3px solid var(--gold);
-            padding: 20px 78px;
-            font-size: 1.32rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 700;
-            letter-spacing: 3px;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        
-        #load-more:hover {
-            background: var(--gold);
-            color: var(--pure-black);
-            box-shadow: 0 0 50px rgba(212, 175, 55, 0.7);
-            transform: translateY(-4px);
         }
         
         .join-section .container {
@@ -434,7 +401,7 @@
                 <p>Curated slow piano & saxophone sessions, velvet vocals, and cozy rainy-night atmospheres. Perfect for date nights, deep focus, or drifting into the sweetest dreams.</p>
                 <p>"Where every note feels like a gentle kiss from the past..."</p>
             </div>
-            <button onclick="window.open('https://www.youtube.com/@Sweetheart_Jazz_Club?sub_confirmation=1', '_blank')" class="subscribe-btn">SUBSCRIBE ON YOUTUBE</button>
+            <button onclick="window.open('https://www.youtube.com/@Sweetheart_Jazz_Club?sub_confirmation=1', '_blank')" class="elegant-btn">Subscribe on YouTube</button>
             <div class="scroll-arrow" onclick="document.getElementById('videos').scrollIntoView({ behavior: 'smooth' });">↓</div>
         </div>
     </header>
@@ -444,17 +411,14 @@
             <h2 class="section-title">Latest Releases</h2>
         </div>
         <div id="videos-grid" class="videos-grid"></div>
-        <button id="load-more" onclick="loadMoreVideos()">Show More Performances</button>
+        <button id="load-more" onclick="loadMoreVideos()" class="elegant-btn">More Performances</button>
     </section>
 
     <section class="join-section">
         <div class="container">
             <h2 class="section-title">Join the Sweethearts</h2>
             <p>New romantic jazz playlists and 4K sessions every week.<br>Never miss a golden moment.</p>
-            <button onclick="window.open('https://www.youtube.com/@Sweetheart_Jazz_Club', '_blank')" 
-                    style="background:#1a120f; color:var(--gold); padding:23px 78px; border:3px solid var(--gold); font-size:1.38rem; border-radius:60px; cursor:pointer; transition:all .5s cubic-bezier(0.23,1,0.32,1); font-weight:600;">
-                VISIT OFFICIAL CHANNEL
-            </button>
+            <button onclick="window.open('https://www.youtube.com/@Sweetheart_Jazz_Club', '_blank')" class="elegant-btn">Visit Official Channel</button>
         </div>
     </section>
 
