@@ -234,7 +234,11 @@
         }
         
         #videos { 
-            background: var(--deep-bg) !important; 
+            background: var(--pure-black) !important; 
+        }
+        
+        .join-section {
+            background: var(--pure-black) !important;
         }
         
         .videos-grid {
@@ -360,10 +364,6 @@
         }
         
         /* Join Section */
-        .join-section {
-            background: var(--deep-bg);
-        }
-        
         .join-section p {
             max-width: 680px;
             margin: 0 auto 48px;
@@ -380,15 +380,17 @@
         }
         
         .footer-logo {
-            font-family: 'Great Vibes', cursive;
-            font-size: 4.2rem;
-            color: var(--gold);
             margin-bottom: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
             opacity: 0.95;
+        }
+        
+        .footer-logo img {
+            height: 68px;
+            filter: brightness(1.3) drop-shadow(0 0 20px var(--gold));
         }
         
         .footer p { 
@@ -461,7 +463,7 @@
         <button id="load-more" onclick="loadMoreVideos()">Show More Performances</button>
     </section>
 
-    <section style="background: var(--deep-bg); text-align:center;" class="join-section">
+    <section class="join-section">
         <h2 class="section-title">Join the Sweethearts</h2>
         <p>New romantic jazz playlists and 4K sessions every week.<br>Never miss a golden moment.</p>
         <button onclick="window.open('https://www.youtube.com/@Sweetheart_Jazz_Club', '_blank')" 
@@ -472,8 +474,7 @@
 
     <footer class="footer">
         <div class="footer-logo">
-            <img src="cutlogo.png" alt="" style="height: 68px; filter: brightness(1.3) drop-shadow(0 0 20px var(--gold));"> 
-            Sweetheart Jazz Club
+            <img src="cutlogo2.png" alt="Sweetheart Jazz Club" style="height: 68px; filter: brightness(1.3) drop-shadow(0 0 20px var(--gold));">
         </div>
         <p>Official website • All content from <a href="https://www.youtube.com/@Sweetheart_Jazz_Club" target="_blank">Sweetheart Jazz Club</a> on YouTube</p>
         <p style="margin-top: 40px; opacity: 0.6; font-size: 0.98rem;">Made with ❤️ for lovers of timeless vintage jazz</p>
@@ -490,7 +491,6 @@
                 note.className = 'music-note';
                 note.textContent = notes[Math.floor(Math.random() * notes.length)];
                 
-                // Random positioning & animation duration
                 const left = Math.random() * 100;
                 const duration = 18 + Math.random() * 22;
                 const delay = Math.random() * -40;
@@ -584,7 +584,6 @@
             }
         }
 
-        // Initialize everything
         window.onload = function() {
             createFloatingNotes();
             fetchVideos();
