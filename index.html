@@ -39,7 +39,6 @@
             position: relative;
         }
         
-        /* Ambient background glow */
         body::before {
             content: '';
             position: fixed;
@@ -74,7 +73,6 @@
             padding: 80px 20px;
         }
         
-        /* Floating music notes */
         .music-note {
             position: absolute;
             font-size: 2.2rem;
@@ -206,7 +204,6 @@
             50% { transform: translateY(18px); }
         }
         
-        /* Sections */
         section {
             padding: 120px 6% 100px;
             position: relative;
@@ -247,7 +244,6 @@
             gap: 42px;
         }
         
-        /* Premium shine video cards */
         .video-card {
             background: #0a0a0a;
             border-radius: 24px;
@@ -286,7 +282,6 @@
             transform: scale(1.08);
         }
         
-        /* Shine effect */
         .thumbnail-container::after {
             content: '';
             position: absolute;
@@ -363,7 +358,6 @@
             box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
         }
         
-        /* Join Section */
         .join-section p {
             max-width: 680px;
             margin: 0 auto 48px;
@@ -381,16 +375,12 @@
         
         .footer-logo {
             margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            opacity: 0.95;
         }
         
         .footer-logo img {
-            height: 68px;
-            filter: brightness(1.3) drop-shadow(0 0 20px var(--gold));
+            height: 180px;
+            filter: brightness(1.4) drop-shadow(0 0 30px var(--gold));
+            max-width: 90%;
         }
         
         .footer p { 
@@ -403,46 +393,16 @@
             text-decoration: underline rgba(212,175,55,0.4);
         }
         
-        /* Enhanced mobile */
         @media (max-width: 768px) {
-            section { 
-                padding: 90px 5% 80px; 
+            .footer-logo img {
+                height: 130px;
             }
-            .hero-bg-logo {
-                width: 420px;
-            }
-            .videos-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-            .subscribe-btn {
-                min-width: 260px;
-                padding: 17px 50px;
-            }
-        }
-        
-        /* Fade-in animation for cards */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .video-card {
-            animation: fadeUp 0.8s backwards;
         }
     </style>
 </head>
 <body>
     <header>
-        <!-- Floating music notes container -->
         <div id="music-notes"></div>
-        
         <img src="cutlogo.png" alt="Sweetheart Jazz Club Logo" class="hero-bg-logo">
         
         <div class="hero-content">
@@ -474,34 +434,29 @@
 
     <footer class="footer">
         <div class="footer-logo">
-            <img src="cutlogo2.png" alt="Sweetheart Jazz Club" style="height: 68px; filter: brightness(1.3) drop-shadow(0 0 20px var(--gold));">
+            <img src="cutlogo2.png" alt="Sweetheart Jazz Club" />
         </div>
         <p>Official website • All content from <a href="https://www.youtube.com/@Sweetheart_Jazz_Club" target="_blank">Sweetheart Jazz Club</a> on YouTube</p>
         <p style="margin-top: 40px; opacity: 0.6; font-size: 0.98rem;">Made with ❤️ for lovers of timeless vintage jazz</p>
     </footer>
 
     <script>
-        // Create floating music notes
         function createFloatingNotes() {
             const container = document.getElementById('music-notes');
             const notes = ['♫', '♪', '♬', '𝄞', '🎵'];
-            
             for (let i = 0; i < 18; i++) {
                 const note = document.createElement('div');
                 note.className = 'music-note';
                 note.textContent = notes[Math.floor(Math.random() * notes.length)];
-                
                 const left = Math.random() * 100;
                 const duration = 18 + Math.random() * 22;
                 const delay = Math.random() * -40;
                 const size = 1.4 + Math.random() * 2.2;
-                
                 note.style.left = `${left}vw`;
                 note.style.fontSize = `${size}rem`;
                 note.style.animationDuration = `${duration}s`;
                 note.style.animationDelay = `${delay}s`;
                 note.style.opacity = 0.12 + Math.random() * 0.22;
-                
                 container.appendChild(note);
             }
         }
@@ -517,7 +472,6 @@
             try {
                 const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`);
                 const data = await response.json();
-                
                 allVideos = data.items.map(item => {
                     const url = new URL(item.link);
                     const videoId = url.searchParams.get('v') || item.guid.split('/').pop();
@@ -525,13 +479,10 @@
                         title: item.title,
                         videoId: videoId,
                         pubDate: new Date(item.pubDate).toLocaleDateString('en-US', { 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
+                            year: 'numeric', month: 'long', day: 'numeric' 
                         })
                     };
                 });
-                
                 displayedCount = 0;
                 document.getElementById('videos-grid').innerHTML = '';
                 loadMoreVideos();
@@ -543,12 +494,10 @@
         function loadMoreVideos() {
             const grid = document.getElementById('videos-grid');
             const nextBatch = allVideos.slice(displayedCount, displayedCount + videosPerPage);
-            
             nextBatch.forEach((video, index) => {
                 const card = document.createElement('div');
                 card.className = 'video-card';
                 card.style.animationDelay = `${index * 80}ms`;
-                
                 card.innerHTML = `
                     <div class="thumbnail-container">
                         <img src="https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg" 
@@ -560,11 +509,9 @@
                         <div class="video-meta">${video.pubDate}</div>
                     </div>
                 `;
-                
                 card.addEventListener('click', function() {
                     const thumb = this.querySelector('.thumbnail-container');
                     if (!thumb) return;
-                    
                     const embedHTML = `
                         <div class="embed-container">
                             <iframe src="https://www.youtube.com/embed/${video.videoId}?autoplay=1&rel=0" 
@@ -574,10 +521,8 @@
                         </div>`;
                     thumb.outerHTML = embedHTML;
                 });
-                
                 grid.appendChild(card);
             });
-            
             displayedCount += nextBatch.length;
             if (displayedCount >= allVideos.length) {
                 document.getElementById('load-more').style.display = 'none';
